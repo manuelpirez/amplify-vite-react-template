@@ -2,11 +2,8 @@ import { useEffect, useState } from 'react'
 import { useAuthenticator } from '@aws-amplify/ui-react'
 import type { Schema } from '../amplify/data/resource'
 import { generateClient } from 'aws-amplify/data'
-import {
-  TodoCreateForm,
-  TodoUpdateForm
-} from '../amplify-components/ui-components'
-import { ContactUs } from '../amplify-components/figma'
+import TodoUpdateForm from '../amplify-components/ui-components/TodoUpdateForm'
+import TodoCreateForm from '../amplify-components/ui-components/TodoCreateForm'
 
 const client = generateClient<Schema>()
 
@@ -35,7 +32,11 @@ function App() {
       <button onClick={createTodo}>+ new</button>
       <ul>
         {todos.map(todo => (
-          <li onClick={() => deleteTodo(todo.id)} key={todo.id}>
+          <li
+            onKeyDown={() => deleteTodo(todo.id)}
+            onClick={() => deleteTodo(todo.id)}
+            key={todo.id}
+          >
             {todo.content}
           </li>
         ))}
@@ -54,8 +55,6 @@ function App() {
       </div>
       <TodoCreateForm />
       <button onClick={signOut}>Sign out</button>
-
-      <ContactUs />
     </main>
   )
 }
