@@ -5,12 +5,18 @@ export const auth = defineAuth({
     email: true,
     externalProviders: {
       google: {
-        clientId: secret('GOOGLE_CLIENT_ID'),
         clientSecret: secret('GOOGLE_CLIENT_SECRET'),
+        clientId: secret('GOOGLE_CLIENT_ID'),
         scopes: ['email']
       },
-      callbackUrls: ['https://main.d3h2vmfooi95l9.amplifyapp.com'],
-      logoutUrls: ['https://main.d3h2vmfooi95l9.amplifyapp.com']
+      callbackUrls: [
+        'https://main.d3h2vmfooi95l9.amplifyapp.com',
+        'http://localhost:5173/'
+      ],
+      logoutUrls: [
+        'https://main.d3h2vmfooi95l9.amplifyapp.com',
+        'http://localhost:5173/'
+      ]
     }
   }
 })
