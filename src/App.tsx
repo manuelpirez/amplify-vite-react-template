@@ -13,6 +13,7 @@ function App() {
   const [todos, setTodos] = useState<Array<Schema['Todo']['type']>>([])
   fetchUserAttributes().then(attr => console.log(attr))
   console.log({ user })
+
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
       next: data => setTodos([...data.items])
