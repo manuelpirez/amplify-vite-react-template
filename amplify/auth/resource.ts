@@ -9,8 +9,8 @@ export const auth = defineAuth({
         clientSecret: secret('GOOGLE_CLIENT_SECRET'),
         scopes: ['email']
       },
-      callbackUrls: ['http://localhost:5173/profile'],
-      logoutUrls: ['http://localhost:5173/']
+      callbackUrls: ['https://main.d3h2vmfooi95l9.amplifyapp.com/'],
+      logoutUrls: ['https://main.d3h2vmfooi95l9.amplifyapp.com/']
     }
   }
 })
