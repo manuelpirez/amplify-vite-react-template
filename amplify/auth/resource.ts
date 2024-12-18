@@ -6,13 +6,11 @@ export const auth = defineAuth({
     externalProviders: {
       google: {
         clientId: secret('GOOGLE_CLIENT_ID'),
-        clientSecret: secret('GOOGLE_CLIENT_SECRET')
+        clientSecret: secret('GOOGLE_CLIENT_SECRET'),
+        scopes: ['email']
       },
-      callbackUrls: [
-        'http://localhost:3000/profile',
-        'https://mywebsite.com/profile'
-      ],
-      logoutUrls: ['http://localhost:3000/', 'https://mywebsite.com']
+      callbackUrls: ['http://localhost:5173/profile'],
+      logoutUrls: ['http://localhost:5173/']
     }
   }
 })
