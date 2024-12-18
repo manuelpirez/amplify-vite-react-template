@@ -11,8 +11,8 @@ const client = generateClient<Schema>()
 function App() {
   const { user, signOut } = useAuthenticator()
   const [todos, setTodos] = useState<Array<Schema['Todo']['type']>>([])
-  console.log({ user })
   fetchUserAttributes().then(attr => console.log(attr))
+  console.log({ user })
 
   useEffect(() => {
     client.models.Todo.observeQuery().subscribe({
