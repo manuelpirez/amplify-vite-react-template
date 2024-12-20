@@ -3,7 +3,9 @@ import { fetchUserAttributes } from '@aws-amplify/auth'
 
 const App = () => {
   const { user, signOut } = useAuthenticator()
-  let userData = {}
+  let userData = {
+    email: ''
+  }
 
   const getUserData = async ({ attr, user }: { attr: never; user: never }) => {
     console.log({ attr })
@@ -21,6 +23,7 @@ const App = () => {
 
   return (
     <main>
+      {userData ? userData?.email : 'Loading...'}
       <button onClick={signOut}>Sign out</button>
     </main>
   )
