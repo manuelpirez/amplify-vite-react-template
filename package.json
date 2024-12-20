@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@aws-amplify/auth": "^6.8.3",
     "@aws-amplify/ui-react": "^6.5.5",
     "@builder.io/dev-tools": "^1.2.3",
     "aws-amplify": "^6.6.6",
