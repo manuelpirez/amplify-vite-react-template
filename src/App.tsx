@@ -1,8 +1,10 @@
 import { useAuthenticator } from '@aws-amplify/ui-react'
 import { fetchUserAttributes } from '@aws-amplify/auth'
+import { useState } from 'react'
 
 const App = () => {
   const { user, signOut } = useAuthenticator()
+  const [email, setEmail] = useState('')
   let userData = {
     email: ''
   }
@@ -13,6 +15,7 @@ const App = () => {
     userData = attr || user
     //setUserData({ email: 'test' })
     console.log({ userData })
+    setEmail(userData?.email ? userData?.email : 'test@email')
   }
 
   fetchUserAttributes().then(attr => {
@@ -23,7 +26,7 @@ const App = () => {
 
   return (
     <main>
-      {userData ? userData?.email : 'Loading...'}
+      <p> user {email || 'Loading...'}</p>
       <button onClick={signOut}>Sign out</button>
     </main>
   )
